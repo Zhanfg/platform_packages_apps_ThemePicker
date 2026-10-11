@@ -1,0 +1,25 @@
+name: ThemePicker MD3E TalkBack QA
+on:
+  push:
+    branches: ["fix/md3e-palette-accessibility"]
+  pull_request:
+    paths:
+      - "src/com/android/customization/picker/color/ui/compose/ColorFloatingSheet.kt"
+      - "tools/qa/test_palette_accessibility.py"
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          filter: blob:none
+          sparse-checkout: |
+            src/com/android/customization/picker/color/ui/compose/ColorFloatingSheet.kt
+            res/values/strings.xml
+            res/values-zh-rCN/strings.xml
+            tools/qa/test_palette_accessibility.py
+          sparse-checkout-cone-mode: false
+      - run: python3 -m unittest discover -s tools/qa -p test_palette_accessibility.py -v
