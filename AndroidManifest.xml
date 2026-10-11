@@ -22,6 +22,7 @@
     <uses-permission android:name="android.permission.SET_WALLPAPER"/>
     <uses-permission android:name="android.permission.SET_WALLPAPER_DIM_AMOUNT" />
     <uses-permission android:name="android.permission.UPDATE_THEME_SETTINGS" />
+    <uses-permission android:name="com.google.pixel.livewallpaper.permission.DOWNLOAD_LIVE_WALLPAPER" />
 
     <permission
         android:name="com.android.wallpaper.permission.ACCESS_RECENT_WALLPAPERS"
@@ -32,6 +33,7 @@
         <package android:name="com.android.launcher3"/>
         <package android:name="com.android.settings"/>
         <package android:name="com.android.systemui"/>
+        <package android:name="com.google.pixel.livewallpaper" />
         <!-- Package of camera for icon shape -->
         <package android:name="com.android.camera2" />
         <package android:name="com.google.android.desktop.camera" />
@@ -56,6 +58,9 @@
         <!-- Intent filter with action WallpaperService (live wallpaper interface) -->
         <intent>
             <action android:name="android.service.wallpaper.WallpaperService" />
+        </intent>
+        <intent>
+            <action android:name="com.google.pixel.livewallpaper.action.DOWNLOAD_LIVE_WALLPAPER" />
         </intent>
         <!-- Intent filter with action used to discover partner -->
         <intent>

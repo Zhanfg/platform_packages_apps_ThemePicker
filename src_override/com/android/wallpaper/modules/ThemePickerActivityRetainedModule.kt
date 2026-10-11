@@ -16,7 +16,6 @@
 
 package com.android.wallpaper.modules
 
-import com.android.wallpaper.picker.preview.data.util.DefaultLiveWallpaperDownloader
 import com.android.wallpaper.picker.preview.data.util.LiveWallpaperDownloader
 import dagger.Binds
 import dagger.Module
@@ -31,6 +30,6 @@ abstract class ThemePickerActivityRetainedModule {
     @Binds
     @ActivityRetainedScoped
     abstract fun bindLiveWallpaperDownloader(
-        impl: DefaultLiveWallpaperDownloader
+        impl: PixelLiveWallpaperDownloader
     ): LiveWallpaperDownloader
 }
