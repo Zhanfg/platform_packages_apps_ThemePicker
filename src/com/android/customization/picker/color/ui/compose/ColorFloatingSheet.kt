@@ -260,7 +260,10 @@ fun ColorFloatingSheetLanding(
                     Icon(
                         modifier = Modifier.size(20.dp),
                         painter = painterResource(R.drawable.ic_palette_filled_24px),
-                        contentDescription = "",
+                        // The palette icon opens custom color selection.
+                        // Use the existing localized TalkBack description.
+                        contentDescription =
+                            stringResource(R.string.accessibility_custom_color_title),
                     )
                 }
             }
